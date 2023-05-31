@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+
+{% block title %}Perfil{% endblock %}
+
+{% block content %}
+   <h2>Bienvenido!</h2>
+   {% if user.is_authenticated %}
+      Hola, {{ user.username }}!
+      <a href="/signout" class="btn btn-danger">Salir</a>
+   {% else %}
+      <a href="/signin" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span>Ingresar</a>
+      <a href="/signup" class="btn btn-success">Registrar</a>
+   {% endif %}
+
+   <h1> Riesgos de seguridad de la información</h1>
+   <button id="resumen-btn" class="btn btn-primary">Resumen información empresarial</button>
+   <button id="calificador-btn" class="btn btn-primary">Calificador de riesgos empresariales</button>
+   <button id="informacion-btn" class="btn btn-primary">Información empresarial</button>
+
+
+   <div id="resumen-list" style="display: none;">
+      <ul>
+         <li><a href="{% url 'calcular_suma_costos' %}">Costos casos generales</a></li>
+         <li><a href="{% url 'calcular_suma_emp1' %}">Empresa 1</a></li>
+         <li><a href="{% url 'calcular_suma_emp2' %}">Empresa 2</a></li>
+         <li><a href="{% url 'calcular_suma_emp3' %}">Empresa 3</a></li>
+         <li><a href="{% url 'calcular_suma_emp4' %}">Empresa 4</a></li>
+         <li><a href="{% url 'calcular_suma_emp5' %}">Empresa 5</a></li>
+      </ul>
+   </div>
+
+   <div id="informacion-list" style="display: none;">
+   <ul>
+        <li><a href="{% url 'mostrar_datos_emp1' %}">Datos Empresa 1</a></li>
+        <li><a href="{% url 'mostrar_datos_emp2' %}">Datos Empresa 2</a></li>
+        <li><a href="{% url 'mostrar_datos_emp3' %}">Datos Empresa 3</a></li>
+        <li><a href="{% url 'mostrar_datos_emp4' %}">Datos Empresa 4</a></li>
+        <li><a href="{% url 'mostrar_datos_emp5' %}">Datos Empresa 5</a></li>
+        <li><a href="{% url 'calificar_riesgos_emp' %}">Resultado del Modelo</a></li> <!-- Nueva opción para mostrar el resultado del modelo -->
+   </ul>
+</div>
+
+   <div id="calificador-list" style="display: none;">
+      <ul>
+         <li><a href="{% url 'calificar_riesgos_emp_g' %}">Calificador Costos por Riesgos Empresariales Generales</a></li>
+         <li><a href="{% url 'calificar_riesgos_emp1' %}">Calificador Riesgos Empresa 1</a></li>
+         <li><a href="{% url 'calificar_riesgos_emp2' %}">Calificador Riesgos Empresa 2</a></li>
+         <li><a href="{% url 'calificar_riesgos_emp3' %}">Calificador Riesgos Empresa 3</a></li>
+         <li><a href="{% url 'calificar_riesgos_emp4' %}">Calificador Riesgos Empresa 4</a></li>
+         <li><a href="{% url 'calificar_riesgos_emp5' %}">Calificador Riesgos Empresa 5</a></li>
+      </ul>
+   </div>
+
+
+   {% if resultados and not mostrar_tabla %}
+   <h3>Resultados de la consulta:</h3>
+   <div class="grid-container">
+      <table>
+         <tr>
+            <th>id_caso</th>
+            <th>id_empresa</th>
+            <th>nombre_empresa</th>
+            <th>nombre_caso</th>
+            <th>nivel_gravedad</th>
+            <th>sistemas_afectados</th>
+            <th>categoria_evento</th>
+            <th>impacto_reputacion</th>
+            <th>costo</th>
+            <th>calificador_riesgos</th>
+            <th>tipo_sector</th>
+            <th>ponderacion_calificacion</th>
+         </tr>
+         {% for resultado in resultados %}
+            <tr>
+               <td>{{ resultado.0 }}</td>
+               <td>{{ resultado.1 }}</td>
+               <td>{{ resultado.2 }}</td>
+               <td>{{ resultado.3 }}</td>
+               <td>{{ resultado.4 }}</td>
+               <td>{{ resultado.5 }}</td>
+               <td>{{ resultado.6 }}</td>
+               <td>{{ resultado.7 }}</td>
+               <td>{{ resultado.8 }}</td>
+               <td>{{ resultado.9 }}</td>
+               <td>{{ resultado.10 }}</td>
+               <td>{{ resultado.11 }}</td>
+            </tr>
+         {% endfor %}
+      </table>
+   </div>
+   {% endif %}
+
+   {% if figs %}
+      {% for fig in figs %}
+         <div>
+            {{ fig|safe }}
+         </div>
+      {% endfor %}
+   {% endif %}
+
+   {% if div %}
+      <div>
+         {{ div|safe }}
+      </div>
+   {% endif %}
+
+
+{% if show_results %}
+   <h3>Resultados del modelo para la empresa {{ id_empresa }}:</h3>
+   <p>De acuerdo a los datos recopilados, la probable afectación en la reputación de la empresa de acuerdo al nivel de gravedad del evento de riesgo es:</p>
+   <ul>
+      {% if low_prob %}
+         <li>Nivel de gravedad 1-3: Baja probabilidad de afectación en la reputación para este caso es de {{ low_prob|floatformat:2 }}%</li>
+      {% endif %}
+      {% if medium_prob %}
+         <li>Nivel de gravedad 4-7: Media probabilidad de afectación en la reputación para este caso es de {{ medium_prob|floatformat:2 }}%</li>
+      {% endif %}
+      {% if high_prob %}
+         <li>Nivel de gravedad 8-10: Alta probabilidad de afectación en la reputación para este caso es de {{ high_prob|floatformat:2 }}%</li>
+      {% endif %}
+   </ul>
+{% endif %}
+
+
+
+
+
+
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+   <script>
+      // Mostrar u ocultar la lista al hacer clic en el botón de resumen
+      const resumenBtn = document.getElementById('resumen-btn');
+      const resumenList = document.getElementById('resumen-list');
+
+      resumenBtn.addEventListener('click', function() {
+         if (resumenList.style.display === 'none') {
+            resumenList.style.display = 'block';
+         } else {
+            resumenList.style.display = 'none';
+         }
+      });
+
+      // Mostrar u ocultar la lista al hacer clic en el botón de información empresarial
+      const informacionBtn = document.getElementById('informacion-btn');
+      const informacionList = document.getElementById('informacion-list');
+
+      informacionBtn.addEventListener('click', function() {
+         if (informacionList.style.display === 'none') {
+            informacionList.style.display = 'block';
+         } else {
+            informacionList.style.display = 'none';
+         }
+      });
+
+      // Mostrar u ocultar la lista al hacer clic en el botón de calificador de riesgos empresariales
+      const calificadorBtn = document.getElementById('calificador-btn');
+      const calificadorList = document.getElementById('calificador-list');
+
+      calificadorBtn.addEventListener('click', function() {
+         if (calificadorList.style.display === 'none') {
+            calificadorList.style.display = 'block';
+         } else {
+            calificadorList.style.display = 'none';
+         }
+      });
+
+   </script>
+
+   <style>
+      .grid-container {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+         grid-gap: 10px;
+      }
+
+      table {
+         border-collapse: collapse;
+         width: 100%;
+      }
+
+      th, td {
+         border: 1px solid black;
+         padding: 8px;
+         text-align: left;
+      }
+   </style>
+{% endblock %}

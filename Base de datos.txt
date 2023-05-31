@@ -1,0 +1,192 @@
+CREATE TABLE info_riesgo_empresas (
+  id_caso INT AUTO_INCREMENT PRIMARY KEY,
+  id_empresa INT NOT NULL,
+  nombre_empresa VARCHAR(255) NOT NULL,
+  nombre_caso VARCHAR(255) NOT NULL,
+  nivel_gravedad INT NOT NULL,
+  sistemas_afectados INT NOT NULL,
+  categoria_evento VARCHAR(255) NOT NULL,
+  impacto_reputacion INT NOT NULL,
+  costo INT NOT NULL,
+  calificador_riesgos VARCHAR(255) NOT NULL,
+  tipo_sector VARCHAR(255) NOT NULL,
+  ponderacion_calificacion INT NOT NULL
+);
+
+
+select * from info_riesgo_empresas where id_empresa = 1
+select nivel_gravedad, impacto_reputacion from info_riesgo_empresas where id_empresa = 1
+SELECT nivel_gravedad, impacto_reputacion where id_empresa = 1 FROM pruebaTecnica.info_riesgo_empresas
+
+DROP TABLE info_riesgo_empresas;
+
+#Datos empresa 1 
+INSERT INTO info_riesgo_empresas (id_empresa, nombre_empresa, nombre_caso, nivel_gravedad, sistemas_afectados, categoria_evento, impacto_reputacion, costo, calificador_riesgos, tipo_sector, ponderacion_calificacion)
+VALUES
+  (1, 'ACME', 'Caso 1', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 2', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 3', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 4', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'SOC 2', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 5', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 26262', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 6', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 7', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 8', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 9', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'SOC 2', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 10', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 26262', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 11', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 12', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 13', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 14', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'SOC 2', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 15', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 26262', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 16', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 17', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 18', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'SOC 2', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 19', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 26262', 'Comercio', FLOOR(RAND() * 10) + 1),
+  (1, 'ACME', 'Caso 20', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Comercio', FLOOR(RAND() * 10) + 1);
+
+
+#Datos empresa 2
+INSERT INTO info_riesgo_empresas (id_empresa, nombre_empresa, nombre_caso, nivel_gravedad, sistemas_afectados, categoria_evento, impacto_reputacion, costo, calificador_riesgos, tipo_sector, ponderacion_calificacion)
+VALUES
+  (2, 'GLOBEX', 'Caso 1', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 2', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 3', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 4', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 5', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 6', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 7', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 8', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 9', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 10', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 11', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 12', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 13', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 14', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 15', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 16', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 17', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 18', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 19', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1),
+  (2, 'GLOBEX', 'Caso 20', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Alimentos', FLOOR(RAND() * 10) + 1);
+
+#Datos empresa 3
+INSERT INTO info_riesgo_empresas (id_empresa, nombre_empresa, nombre_caso, nivel_gravedad, sistemas_afectados, categoria_evento, impacto_reputacion, costo, calificador_riesgos, tipo_sector, ponderacion_calificacion)
+VALUES
+  (3, 'TechNet', 'Caso 1', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 2', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 3', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 4', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 5', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 6', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 7', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 8', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 9', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 10', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 11', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 12', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 13', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 14', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 15', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 16', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 17', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 18', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 19', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1),
+  (3, 'TechNet', 'Caso 20', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Tecnología', FLOOR(RAND() * 10) + 1);
+
+
+
+#Datos empresa 4
+INSERT INTO info_riesgo_empresas (id_empresa, nombre_empresa, nombre_caso, nivel_gravedad, sistemas_afectados, categoria_evento, impacto_reputacion, costo, calificador_riesgos, tipo_sector, ponderacion_calificacion)
+VALUES
+  (4, 'InnovaTech', 'Caso 1', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 2', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 3', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 4', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 5', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 6', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 7', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 8', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 9', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 10', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 11', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 12', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 13', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 14', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 15', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 16', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 17', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 18', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 19', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1),
+  (4, 'InnovaTech', 'Caso 20', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Entretenimiento', FLOOR(RAND() * 10) + 1);
+
+
+#Datos empresa 5
+  INSERT INTO info_riesgo_empresas (id_empresa, nombre_empresa, nombre_caso, nivel_gravedad, sistemas_afectados, categoria_evento, impacto_reputacion, costo, calificador_riesgos, tipo_sector, ponderacion_calificacion)
+VALUES
+  (5, 'Alpha', 'Caso 1', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 2', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 3', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 4', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 5', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 6', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 7', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 8', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento B', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'NIST 800-53', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 9', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento C', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'PCI DSS', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 10', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 11', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 12', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 13', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 14', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 15', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 16', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 17', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 18', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 19', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1),
+  (5, 'Alpha', 'Caso 20', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 10) + 1, 'Evento A', FLOOR(RAND() * 10) + 1, FLOOR(RAND() * 90000) + 10000, 'ISO 27001', 'Automotriz', FLOOR(RAND() * 10) + 1);
+
+
+
+-- Obtener el total de costos por calificador de riesgos
+SELECT calificador_riesgos, SUM(costo) AS total_costos
+FROM info_riesgo_empresas
+GROUP BY calificador_riesgos;
+
+-- Obtener la cantidad de casos por calificador de riesgos y nivel de gravedad
+SELECT calificador_riesgos, nivel_gravedad, COUNT(*) AS cantidad_casos
+FROM info_riesgo_empresas
+GROUP BY calificador_riesgos, nivel_gravedad;
+
+SELECT calificador_riesgos, nivel_gravedad, COUNT(*) AS cantidad_casos
+FROM info_riesgo_empresas
+WHERE id_empresa = 1
+GROUP BY calificador_riesgos, nivel_gravedad;
+
+
+
+
+
+
+
+
+
+
+create database pruebaTecnica
+
+show databases
+
+show tables
+
+use pruebaTecnica
+
+select * from auth_user
+
+
+
+
+
+
+
+
+
+
+
